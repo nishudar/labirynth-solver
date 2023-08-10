@@ -1,0 +1,21 @@
+﻿<Window x:Class="Visualisation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Visualisation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10" Background="Silver">
+            <WrapPanel  Width="1300">
+                <TextBox Name="labirynthText" Width="1227" Height="301" VerticalAlignment="Center" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;XSXX   XXXXX           XXXXXXXXXXXXXXXXXXXX       T          XXXXXXXXXXXXXXXXX&#xD;&#xA;X XXXX XXXXXXXXXX   X       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXX&#xD;&#xA;X    X     X        X   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;X XXXXX XXXX  XXX   X       D                                              XXX&#xD;&#xA;X             XXXX X XXXXXX XXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;XX XXXXXXXXXXXXXXXXX XXXXXX XXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;XX     XXXXX          XX    XXXXXTXXX                      XXXXXXXXXXXXXXXXXXX&#xD;&#xA;XXXXXXXXXX      XX  X       XXXXXXXXXXXX XXXXXXXXXX XXX XX                   X&#xD;&#xA;X           XXX XX  XX XXXXXXXXXX XXXXXXXXXXXXXXXXX XXX XXXXXXXXXXXXXX XXXXXXX&#xD;&#xA;X X XXXXXX             X    XXXXX XX                 X        XXX   XX XXXXXXX&#xD;&#xA;XX     X  XXXXXXXXXXXXXXXXXXXXXXX    XXXXXXXXXXXXXXXXXXXX XX               XXX&#xD;&#xA;XXXXXX       XXXXX          XXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX XXX&#xD;&#xA;XXXXXX   X          XXX     X                                              XXX&#xD;&#xA;XX  XXXXXXXXXXXXXXXXXXXX    XXXXXXXX XXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXX XXXXXX&#xD;&#xA;XX       X             XX   XXXXX      XXXXXXX   XX XXXXXXX           XXXXXXXX&#xD;&#xA;XT  XX      X  X   X        XXXX  XXXXXXXXXXXX X XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                 X                          EXXX&#xD;&#xA;XXXXXXXXXXXXXXXXXXXXXT   K TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;X XX   XXXXX        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#xD;&#xA;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" FontFamily="Consolas"/>
+                <Button Content="Draw" Click="OnDrawClick" Width="65" Height="44" Margin="5,0,0,0"/>
+            </WrapPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="Auto">
+                <Canvas Name="Canv" Background="White" Width="1300" Height="400" Margin="10, 10, 10, 10"/>
+            </ScrollViewer>
+        </StackPanel>
+
+    </Grid>
+</Window>
