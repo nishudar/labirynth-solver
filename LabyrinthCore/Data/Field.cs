@@ -1,6 +1,6 @@
 using System;
 
-namespace LabyrinthCore;
+namespace LabyrinthCore.Data;
 
 public struct Field : IEquatable<Field>
 {

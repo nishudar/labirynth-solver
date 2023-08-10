@@ -1,10 +1,12 @@
 ﻿using System.Text;
 using LabyrinthCore;
+using LabyrinthCore.Data;
+using LabyrinthCore.Extensions;
 using LabyrinthCore.Graph.Algorithms;
 using LabyrinthCore.Solver;
 
 Console.WriteLine("Loading input.txt");
-var labyrinth = Labyrinth.LoadFromFile("input.txt", new AStar(), new DoorKeyTeleportSolver());
+var labyrinth = LabirynthExtensions.LoadFromFile("input.txt", new AStar(), new DoorKeyTeleportSolver());
 Console.WriteLine();
 
 Console.WriteLine(labyrinth.GetMazeString());

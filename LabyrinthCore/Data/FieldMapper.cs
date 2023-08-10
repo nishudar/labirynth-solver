@@ -1,6 +1,6 @@
 using System;
 
-namespace LabyrinthCore;
+namespace LabyrinthCore.Data;
 
 public static class FieldMapper
 {

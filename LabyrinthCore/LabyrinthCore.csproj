@@ -40,9 +40,11 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Field.cs" />
-        <Compile Include="FieldMapper.cs" />
-        <Compile Include="FieldType.cs" />
+        <Compile Include="Data\Field.cs" />
+        <Compile Include="Data\FieldMapper.cs" />
+        <Compile Include="Data\FieldType.cs" />
+        <Compile Include="Extensions\LabirynthExtensions.cs" />
+        <Compile Include="Extensions\LabirynthFormatters.cs" />
         <Compile Include="Graph\Algorithms\AStar.cs" />
         <Compile Include="Graph\Algorithms\Dijkstra.cs" />
         <Compile Include="Graph\Graph.cs" />
