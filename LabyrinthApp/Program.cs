@@ -1,5 +1,4 @@
-﻿using System.Text;
-using LabyrinthCore;
+﻿using LabyrinthCore;
 using LabyrinthCore.Data;
 using LabyrinthCore.Extensions;
 using LabyrinthCore.Graph.Algorithms;
@@ -20,14 +19,13 @@ Console.WriteLine();
 Console.WriteLine(string.Join(";", labyrinth?.Path?.Select(p => p.Value.ToString()??"Not found")!));
 
 
-void DrawLabyrinth(Labyrinth labyrinth)
+void DrawLabyrinth(Labyrinth maze)
 {
-    var sb = new StringBuilder();
-    foreach (var fieldLine in labyrinth.Fields)
+    foreach (var fieldLine in maze.Fields)
     {
         foreach (var field in fieldLine)
         {
-            if(!labyrinth.IsPath(field) || field.FieldType is FieldType.Start or FieldType.End or FieldType.Teleport or FieldType.Door or FieldType.Key)
+            if(!maze.IsPath(field) || field.FieldType is FieldType.Start or FieldType.End or FieldType.Teleport or FieldType.Door or FieldType.Key)
             {
                 var color = field.FieldType switch
                 {

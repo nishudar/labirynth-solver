@@ -8,7 +8,7 @@ namespace LabyrinthCore.Solver;
 
 public class SimpleSolver : ISolver
 {
-    public List<Vertex<Field>> GetPath(IFindPathAlgorithm _algorithm, Labyrinth labyrinth)
+    public List<Vertex<Field>> GetPath(IFindPathAlgorithm algorithm, Labyrinth labyrinth)
     {
         var graph = new Graph<Field>();
 
@@ -42,7 +42,7 @@ public class SimpleSolver : ISolver
         var start = graph.Vertices.Single(v => v.Value.FieldType == FieldType.Start);
         var end = graph.Vertices.Single(v => v.Value.FieldType == FieldType.End);
 
-        var path = _algorithm.FindShortestPath(graph, start, end);
+        var path = algorithm.FindShortestPath(graph, start, end);
 
         return path;
     }

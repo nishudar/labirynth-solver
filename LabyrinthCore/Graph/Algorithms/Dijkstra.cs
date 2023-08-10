@@ -15,22 +15,19 @@ public class Dijkstra : IFindPathAlgorithm
             distances[vertex] = int.MaxValue;
 
         distances[start] = 0;
-
         while (unvisited.Any())
         {
             Vertex<T> current = null;
-            foreach (var vertex in unvisited)
-            {
-                if (current == null || distances[vertex] < distances[current]) 
-                    current = vertex;
-            }
+            foreach (var vertex in unvisited
+                         .Where(vertex => current == null || distances[vertex] < distances[current]))
+                current = vertex;
 
             if (current == end)
                 break;
 
             unvisited.Remove(current);
 
-            foreach (var neighbour in current.NeighbourVertices)
+            foreach (var neighbour in current!.NeighbourVertices)
             {
                 var alt = distances[current] + 1;
                 if (alt < distances[neighbour])
@@ -40,14 +37,10 @@ public class Dijkstra : IFindPathAlgorithm
                 }
             }
         }
-
         var path = new List<Vertex<T>>();
         for (var temp = end; temp != null; previous.TryGetValue(temp, out temp)) 
             path.Insert(0, temp);
 
-        if (path[0] == start)
-            return path;
-
-        return null;
+        return path[0] == start ? path : null;
     }
 }

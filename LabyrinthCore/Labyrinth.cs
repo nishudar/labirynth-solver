@@ -26,12 +26,12 @@ public class Labyrinth
         if (Start == End)
             throw new ArgumentException("Start cannot be the end");
         
-        this.Solver = solver;
+        Solver = solver;
         Solve(algorithm, solver);
     }
 
     private void Solve(IFindPathAlgorithm algorithm, ISolver solver) 
-        => this.Path = solver.GetPath(algorithm, this);
+        => Path = solver.GetPath(algorithm, this);
 
     public IEnumerable<Field> GetNeighbours(Field field)
     {

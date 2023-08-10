@@ -24,13 +24,9 @@ public class Vertex<T>
             neighbour.AddDirectionalNeighbour(neighbour);
     }
 
-    private void AddDirectionalNeighbour(Vertex<T> neighbour)
-    {
-        _neighbours.Add(neighbour);
-    }
+    private void AddDirectionalNeighbour(Vertex<T> neighbour) 
+        => _neighbours.Add(neighbour);
 
-    public override string ToString()
-    {
-        return $"{nameof(Value)}: {Value}";
-    }
+    public override string ToString() 
+        => $"{nameof(Value)}: {Value}";
 }

@@ -9,10 +9,10 @@ public class AStar : IFindPathAlgorithm
     {
         var verticesToEvaluate = new List<Vertex<T>> { startingVertex };
         var vertexPathMap = new Dictionary<Vertex<T>, Vertex<T>>();
-        var distanceFromStart = graphToSearch.Vertices.ToDictionary(vertex => vertex, vertex => int.MaxValue);
+        var distanceFromStart = graphToSearch.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
         distanceFromStart[startingVertex] = 0;
 
-        var estimatedTotalDistance = graphToSearch.Vertices.ToDictionary(vertex => vertex, vertex => int.MaxValue);
+        var estimatedTotalDistance = graphToSearch.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
         estimatedTotalDistance[startingVertex] = HeuristicCostEstimate(startingVertex, targetVertex);
 
         while (verticesToEvaluate.Any())

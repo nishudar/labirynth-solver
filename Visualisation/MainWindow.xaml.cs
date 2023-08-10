@@ -59,7 +59,7 @@ namespace Visualisation
                 var text = new TextBlock
                 {
                     Text = fields[i].FieldType.ToFieldChar().ToString(),
-                    Foreground = Brushes.Black,
+                    Foreground = System.Windows.Media.Brushes.Black,
                     FontSize = 10,
                     Margin = new Thickness(0),
                     Padding = new Thickness(0)
@@ -76,21 +76,21 @@ namespace Visualisation
             switch (fieldType)
             {
                 case FieldType.Start:
-                    return Brashes.Fuchsia;
+                    return Brushes.Fuchsia;
                 case FieldType.End:
-                    return Brashes.Green;
+                    return Brushes.Green;
                 case FieldType.Door:
-                    return Brashes.DeepPink;
+                    return Brushes.DeepPink;
                 case FieldType.Wall:
-                    return Brashes.Silver;
+                    return Brushes.Silver;
                 case FieldType.Teleport:
-                    return Brashes.Violetchia;
+                    return Brushes.Violet;
                 case FieldType.Key:
-                    return Brashes.Gold;
+                    return Brushes.Gold;
                 case FieldType.Unknown:
-                    return Brashes.Red;
+                    return Brushes.Red;
             }                
-            return isPath ? new SolidColorBrush(Colors.Blue) : Brashes.White;
+            return isPath ? new SolidColorBrush(Colors.Blue) : Brushes.White;
         }
 
     }
