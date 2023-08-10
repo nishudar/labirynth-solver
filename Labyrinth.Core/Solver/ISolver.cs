@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using LabyrinthCore.Data;
 using LabyrinthCore.Graph;
+using LabyrinthCore.Graph.Algorithms;
 
 namespace LabyrinthCore.Solver;
 

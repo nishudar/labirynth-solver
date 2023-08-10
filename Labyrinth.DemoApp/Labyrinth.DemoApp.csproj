@@ -24,7 +24,7 @@
 
 
     <ItemGroup>
-      <ProjectReference Include="..\LabyrinthCore\LabyrinthCore.csproj" />
+      <ProjectReference Include="..\Labyrinth.Core\Labyrinth.Core.csproj" />
     </ItemGroup>
 
 </Project>

@@ -9,7 +9,7 @@
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>LabyrinthCore</RootNamespace>
-        <AssemblyName>LabyrinthCore</AssemblyName>
+        <AssemblyName>Labyrinth.Core</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>11</LangVersion>
@@ -47,8 +47,8 @@
         <Compile Include="Extensions\LabirynthFormatters.cs" />
         <Compile Include="Graph\Algorithms\AStar.cs" />
         <Compile Include="Graph\Algorithms\Dijkstra.cs" />
+        <Compile Include="Graph\Algorithms\IFindPathAlgorithm.cs" />
         <Compile Include="Graph\Graph.cs" />
-        <Compile Include="Graph\IFindPathAlgorithm.cs" />
         <Compile Include="Graph\Vertex.cs" />
         <Compile Include="Labyrinth.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>

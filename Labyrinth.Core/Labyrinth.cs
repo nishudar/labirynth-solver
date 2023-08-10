@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LabyrinthCore.Data;
 using LabyrinthCore.Graph;
+using LabyrinthCore.Graph.Algorithms;
 using LabyrinthCore.Solver;
 
 namespace LabyrinthCore;

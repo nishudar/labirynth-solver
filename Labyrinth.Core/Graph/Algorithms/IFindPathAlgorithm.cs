@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace LabyrinthCore.Graph;
+namespace LabyrinthCore.Graph.Algorithms;
 
 public interface IFindPathAlgorithm
 {

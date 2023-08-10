@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabyrinthApp", "LabyrinthApp\LabyrinthApp.csproj", "{B8F112EB-20C1-4BC4-80CE-034DC13EFAE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labyrinth.DemoApp", "Labyrinth.DemoApp\Labyrinth.DemoApp.csproj", "{B8F112EB-20C1-4BC4-80CE-034DC13EFAE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabyrinthCore", "LabyrinthCore\LabyrinthCore.csproj", "{40A72D14-B5A9-4438-B1A7-2ED08C9B258C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth.Core", "Labyrinth.Core\Labyrinth.Core.csproj", "{40A72D14-B5A9-4438-B1A7-2ED08C9B258C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visualisation", "Visualisation\Visualisation.csproj", "{4B0C3D7A-0EC0-476C-BD94-51089B0634DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labyrinth.Visualisation", "Labyrinth.Visualisation\Labyrinth.Visualisation.csproj", "{4B0C3D7A-0EC0-476C-BD94-51089B0634DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
