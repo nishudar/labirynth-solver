@@ -3,7 +3,7 @@ namespace LabyrinthCore.Graph;
 public class Vertex<T>
 {
     public T Value { get; set; }
-    public IReadOnlyList<Vertex<T>> NeighbourVertices { get; private set; }
+    public IReadOnlyList<Vertex<T>> NeighbourVertices { get; }
 
     private readonly List<Vertex<T>> _neighbours;
 
