@@ -41,10 +41,10 @@ public class DoorKeyTeleportSolver : ISolver
         else
             return alternativePath;
         
-        if (alternativePath == null)
+        if (alternativePath is null)
             return pathWithKey;
-        else
-            return pathWithKey.Count < alternativePath.Count ?  pathWithKey : alternativePath;
+        
+        return pathWithKey.Count < alternativePath.Count ?  pathWithKey : alternativePath;
     }
     
     private List<Vertex<Field>> SolveWithWithDoor(IFindPathAlgorithm algorithm, Labyrinth labyrinth, bool canPassDor, Field startField, Field endField)
@@ -88,8 +88,8 @@ public class DoorKeyTeleportSolver : ISolver
         
         
 
-        Vertex<Field> start = graph.Vertices.First(v => v.Value == startField);
-        Vertex<Field> end = graph.Vertices.First(v => v.Value == endField);
+        var start = graph.Vertices.First(v => v.Value == startField);
+        var end = graph.Vertices.First(v => v.Value == endField);
         
         var path = algorithm.FindShortestPath(graph, start, end);
 
@@ -98,6 +98,7 @@ public class DoorKeyTeleportSolver : ISolver
 
 
     private static readonly FieldType[] ForbiddenFields = {FieldType.Wall, FieldType.Unknown, FieldType.Door};
-    private static Func<Field, bool> IsWhitelistedField(bool canPassDor)=> field =>  (field.FieldType is FieldType.Door && canPassDor) || !ForbiddenFields.Contains(field.FieldType);
+    private static Func<Field, bool> IsWhitelistedField(bool canPassDor)
+        => field => (field.FieldType is FieldType.Door && canPassDor) || !ForbiddenFields.Contains(field.FieldType);
     private IEnumerable<Field> GetAccessibleNeighbours(IEnumerable<Field> fieldNeighbours, bool canUseDoor) => fieldNeighbours.Where(IsWhitelistedField(canUseDoor));
 }

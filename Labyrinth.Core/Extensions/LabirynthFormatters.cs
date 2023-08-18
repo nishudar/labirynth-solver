@@ -7,33 +7,27 @@ public static class LabirynthFormatterExtensions
 {
     public static string GetMazeString(this Labyrinth labyrinth)
     {
-        var sb = new StringBuilder();
+        var result = new StringBuilder();
         foreach (var fieldLine in labyrinth.Fields)
         {
-            foreach (var field in fieldLine)
-            {
-                var character = field.FieldType.ToFieldChar();
-                sb.Append(character);
-            }
-            sb.AppendLine();
+            foreach (var field in fieldLine) 
+                result.Append(field.FieldType.ToFieldChar());
+            result.AppendLine();
         }
 
-        return sb.ToString();
+        return result.ToString();
     }
     
     public static string GetPathString(this Labyrinth labyrinth)
     {
-        var sb = new StringBuilder();
+        var result = new StringBuilder();
         foreach (var fieldLine in labyrinth.Fields)
         {
-            foreach (var field in fieldLine)
-            {
-                var character = labyrinth.IsPath(field) ? '*' : ' ';
-                sb.Append(character);
-            }
-            sb.AppendLine();
+            foreach (var field in fieldLine) 
+                result.Append(labyrinth.IsPath(field) ? '*' : ' ');
+            result.AppendLine();
         }
 
-        return sb.ToString();
+        return result.ToString();
     }
 }

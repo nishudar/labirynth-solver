@@ -23,7 +23,9 @@ public static class LabirynthExtensions
     
     private static List<List<Field>> LoadFromText(string text)
     {
-        var lines = text.Replace("\r", "").Split('\n');
+        var lines = text
+            .Replace("\r", "")
+            .Split('\n');
         var minLength = lines.Min(line => line.Length);
         var result = new List<List<Field>>();
         for (var y = 0; y < lines.Length; y++)
@@ -48,8 +50,11 @@ public static class LabirynthExtensions
 
     private static List<List<Field>> LoadFromFile(string fileName)
     {
-        var lines = File.ReadLines(fileName).ToArray();
-        var minLength = lines.Min(line => line.Length);
+        var lines = File
+            .ReadLines(fileName)
+            .ToArray();
+        var minLength = lines
+            .Min(line => line.Length);
         var result = new List<List<Field>>();
         for (var y = 0; y < lines.Length; y++)
         {
