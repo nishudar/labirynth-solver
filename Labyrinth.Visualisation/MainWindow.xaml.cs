@@ -14,10 +14,8 @@ namespace Visualisation
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() 
+            => InitializeComponent();
 
         private void OnDrawClick(object sender, RoutedEventArgs e)
         {
@@ -33,12 +31,12 @@ namespace Visualisation
                 return;
             }
 
-            var fields = labyrinth.AllFields.ToArray();
+            var fields = labyrinth.AllFields().ToArray();
             var size = (int) Math.Min(Canv.Width/labyrinth.Width, Canv.Height/labyrinth.Height);
 
-            for (var i = 0; i < fields.Length; i++)
+            foreach (var field in fields)
             {
-                var fill = GetFill(fields[i].FieldType, labyrinth.IsPath(fields[i]));
+                var fill = GetFill(field.FieldType, labyrinth.IsPath(field));
                 var rect = new Rectangle
                 {
 
@@ -48,17 +46,17 @@ namespace Visualisation
                     RadiusX = (double)size/2,
                     RadiusY = (double)size/3
                 };
-                Canvas.SetLeft(rect, fields[i].X * size);
-                Canvas.SetTop(rect, fields[i].Y * size);
+                Canvas.SetLeft(rect, field.X * size);
+                Canvas.SetTop(rect, field.Y * size);
 
                 Canv.Children.Add(rect);
 
-                if (fields[i].FieldType is FieldType.Empty || fields[i].FieldType is FieldType.Wall) 
+                if (field.FieldType is FieldType.Empty or FieldType.Wall) 
                     continue;
                 
                 var text = new TextBlock
                 {
-                    Text = fields[i].FieldType.ToFieldChar().ToString(),
+                    Text = field.FieldType.ToFieldChar().ToString(),
                     Foreground = System.Windows.Media.Brushes.Black,
                     FontSize = 10,
                     Margin = new Thickness(0),
@@ -71,27 +69,17 @@ namespace Visualisation
             }
         }
 
-        private Brush GetFill(FieldType fieldType, bool isPath)
-        {
-            switch (fieldType)
+        private Brush GetFill(FieldType fieldType, bool isPath) 
+            => fieldType switch
             {
-                case FieldType.Start:
-                    return Brushes.Fuchsia;
-                case FieldType.End:
-                    return Brushes.Green;
-                case FieldType.Door:
-                    return Brushes.DeepPink;
-                case FieldType.Wall:
-                    return Brushes.Silver;
-                case FieldType.Teleport:
-                    return Brushes.Violet;
-                case FieldType.Key:
-                    return Brushes.Gold;
-                case FieldType.Unknown:
-                    return Brushes.Red;
-            }                
-            return isPath ? new SolidColorBrush(Colors.Blue) : Brushes.White;
-        }
-
+                FieldType.Start => Brushes.Fuchsia,
+                FieldType.End => Brushes.Green,
+                FieldType.Door => Brushes.DeepPink,
+                FieldType.Wall => Brushes.Silver,
+                FieldType.Teleport => Brushes.Violet,
+                FieldType.Key => Brushes.Gold,
+                FieldType.Unknown => Brushes.Red,
+                _ => isPath ? new SolidColorBrush(Colors.Blue) : Brushes.White
+            };
     }
 }
