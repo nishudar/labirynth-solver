@@ -45,6 +45,7 @@
         <Compile Include="Data\FieldType.cs" />
         <Compile Include="Extensions\LabirynthExtensions.cs" />
         <Compile Include="Extensions\LabirynthFormatters.cs" />
+        <Compile Include="Global.cs" />
         <Compile Include="Graph\Algorithms\AStar.cs" />
         <Compile Include="Graph\Algorithms\Dijkstra.cs" />
         <Compile Include="Graph\Algorithms\IFindPathAlgorithm.cs" />

@@ -1,17 +1,15 @@
-using System;
-
 namespace LabyrinthCore.Data;
 
 public struct Field : IEquatable<Field>
 {
-    public FieldType FieldType;
-    public int X;
-    public int Y;
+    public FieldType FieldType { get; set; }
+    public int X { get; set; }
+    public int Y { get; set; }
 
     public bool Equals(Field other) 
         => X == other.X && Y == other.Y;
 
-    public override bool Equals(object? obj) 
+    public override bool Equals(object obj) 
         => obj is Field other && Equals(other);
 
     public override int GetHashCode()

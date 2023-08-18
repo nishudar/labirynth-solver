@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using LabyrinthCore.Data;
 using LabyrinthCore.Graph;
 using LabyrinthCore.Graph.Algorithms;
@@ -32,7 +29,7 @@ public class DoorKeyTeleportSolver : ISolver
         if (pathToKey is null) 
             return alternativePath;
         
-        var pathFromKeyToEnd =  SolveWithWithDoor(algorithm, labyrinth, true, pathToKey.Last().Value, labyrinth.End.Value);
+        var pathFromKeyToEnd =  SolveWithWithDoor(algorithm, labyrinth, true, pathToKey[pathToKey.Count - 1].Value, labyrinth.End.Value);
 
         List<Vertex<Field>> pathWithKey;
         if(pathFromKeyToEnd is not null)
@@ -60,8 +57,8 @@ public class DoorKeyTeleportSolver : ISolver
         
         foreach (var field in whitelistedFields)
         {
-            var isNew = graph.Vertices.All(v => v.Value != field);
-            var vertex = graph.Vertices.FirstOrDefault(v => v.Value == field) ?? new Vertex<Field>(field);
+            var isNew = graph.Vertices.TrueForAll(v => v.Value != field);
+            var vertex = graph.Vertices.Find(v => v.Value == field) ?? new Vertex<Field>(field);
             var directNeighbours = labyrinth.GetNeighbours(field);
             var fieldNeighbours = GetAccessibleNeighbours(directNeighbours, canPassDor).ToList();
 
@@ -73,7 +70,7 @@ public class DoorKeyTeleportSolver : ISolver
             
             foreach (var neighbourField in fieldNeighbours)
             {
-                var neighbourVertex = graph.Vertices.FirstOrDefault(v => v.Value == neighbourField);
+                var neighbourVertex = graph.Vertices.Find(v => v.Value == neighbourField);
                 
                 if (neighbourVertex is not null)
                     vertex.ConnectWithNeighbour(neighbourVertex);

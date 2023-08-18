@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace LabyrinthCore.Graph;
 
 public class Graph<T>

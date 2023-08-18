@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using LabyrinthCore.Data;
 using LabyrinthCore.Graph;
 using LabyrinthCore.Graph.Algorithms;
@@ -11,11 +8,11 @@ namespace LabyrinthCore;
 public class Labyrinth
 {
     public IReadOnlyList<IReadOnlyList<Field>> Fields { get; }
-    public IReadOnlyCollection<Field> AllFields => Fields.SelectMany(line => line).ToList();
+    public IEnumerable<Field> AllFields() => Fields.SelectMany(line => line).ToList();
     public int Width => Fields.Min(line => line.Count);
     public int Height => Fields.Count;
-    public Field? Start => AllFields.Single(f => f.FieldType == FieldType.Start);
-    public Field? End => AllFields.Single(f => f.FieldType == FieldType.End);
+    public Field? Start => AllFields().Single(f => f.FieldType == FieldType.Start);
+    public Field? End => AllFields().Single(f => f.FieldType == FieldType.End);
     public bool IsPath(Field field) => Path?.Exists(v => v.Value == field)??false;
     public List<Vertex<Field>> Path { get; set; }
 

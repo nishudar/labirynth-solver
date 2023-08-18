@@ -1,25 +1,22 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace LabyrinthCore.Graph.Algorithms;
 
 public class AStar : IFindPathAlgorithm
 {
-    public List<Vertex<T>> FindShortestPath<T>(Graph<T> graphToSearch, Vertex<T> startingVertex, Vertex<T> targetVertex)
+    public List<Vertex<T>> FindShortestPath<T>(Graph<T> graph, Vertex<T> start, Vertex<T> end)
     {
-        var verticesToEvaluate = new List<Vertex<T>> { startingVertex };
+        var verticesToEvaluate = new List<Vertex<T>> { start };
         var vertexPathMap = new Dictionary<Vertex<T>, Vertex<T>>();
-        var distanceFromStart = graphToSearch.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
-        distanceFromStart[startingVertex] = 0;
+        var distanceFromStart = graph.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
+        distanceFromStart[start] = 0;
 
-        var estimatedTotalDistance = graphToSearch.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
-        estimatedTotalDistance[startingVertex] = HeuristicCostEstimate(startingVertex, targetVertex);
+        var estimatedTotalDistance = graph.Vertices.ToDictionary(vertex => vertex, _ => int.MaxValue);
+        estimatedTotalDistance[start] = HeuristicCostEstimate(start, end);
 
         while (verticesToEvaluate.Any())
         {
             var currentVertex = verticesToEvaluate.OrderBy(vertex => estimatedTotalDistance[vertex]).First();
 
-            if (currentVertex == targetVertex)
+            if (currentVertex == end)
                 return ReconstructPath(vertexPathMap, currentVertex);
 
             verticesToEvaluate.Remove(currentVertex);
@@ -32,7 +29,7 @@ public class AStar : IFindPathAlgorithm
                 {
                     vertexPathMap[neighbourVertex] = currentVertex;
                     distanceFromStart[neighbourVertex] = tentativeDistance;
-                    estimatedTotalDistance[neighbourVertex] = distanceFromStart[neighbourVertex] + HeuristicCostEstimate(neighbourVertex, targetVertex);
+                    estimatedTotalDistance[neighbourVertex] = distanceFromStart[neighbourVertex] + HeuristicCostEstimate(neighbourVertex, end);
 
                     if (!verticesToEvaluate.Contains(neighbourVertex))
                         verticesToEvaluate.Add(neighbourVertex);

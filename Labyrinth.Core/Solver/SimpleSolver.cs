@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using LabyrinthCore.Data;
 using LabyrinthCore.Graph;
 using LabyrinthCore.Graph.Algorithms;
@@ -17,14 +14,14 @@ public class SimpleSolver : ISolver
         
         foreach (var field in whitelistedFields)
         {
-            var isNew = graph.Vertices.All(v => v.Value != field);
-            var vertex = graph.Vertices.FirstOrDefault(v => v.Value == field) ?? new Vertex<Field>(field);
+            var isNew = graph.Vertices.TrueForAll(v => v.Value != field);
+            var vertex = graph.Vertices.Find(v => v.Value == field) ?? new Vertex<Field>(field);
             var directNeighbours = labyrinth.GetNeighbours(field);
             var fieldNeighbours = GetAccessibleNeighbours(directNeighbours).ToList();
             
             foreach (var neighbourField in fieldNeighbours)
             {
-                var neighbourVertex = graph.Vertices.FirstOrDefault(v => v.Value == neighbourField);
+                var neighbourVertex = graph.Vertices.Find(v => v.Value == neighbourField);
                 
                 if (neighbourVertex is not null)
                     vertex.ConnectWithNeighbour(neighbourVertex);
