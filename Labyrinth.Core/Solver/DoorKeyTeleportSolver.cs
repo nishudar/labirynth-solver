@@ -18,7 +18,7 @@ public class DoorKeyTeleportSolver : ISolver
             alternativePath = path;
         
         List<Vertex<Field>> pathToKey = null;
-        var keys = labyrinth.AllFields.Where(f => f.FieldType == FieldType.Key).ToArray();
+        var keys = labyrinth.AllFields().Where(f => f.FieldType == FieldType.Key).ToArray();
         foreach (var key in keys)
         {
             pathToKey = SolveWithWithDoor(algorithm, labyrinth, false,  labyrinth.Start.Value,  key);
@@ -51,7 +51,7 @@ public class DoorKeyTeleportSolver : ISolver
     {
         var graph = new Graph<Field>();
 
-        var whitelistedFields = labyrinth.AllFields.Where(IsWhitelistedField(canPassDor)).ToList();
+        var whitelistedFields = labyrinth.AllFields().Where(IsWhitelistedField(canPassDor)).ToList();
         whitelistedFields.Remove(startField);
         whitelistedFields.Insert(0, startField);
         

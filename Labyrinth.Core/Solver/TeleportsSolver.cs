@@ -10,7 +10,7 @@ public class TeleportsSolver : ISolver
     {
         var graph = new Graph<Field>();
 
-        var whitelistedFields = labyrinth.AllFields.Where(IsWhitelistedField()).ToArray();
+        var whitelistedFields = labyrinth.AllFields().Where(IsWhitelistedField()).ToArray();
         
         foreach (var field in whitelistedFields)
         {
